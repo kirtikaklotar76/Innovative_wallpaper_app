@@ -4,10 +4,21 @@ import '../modals/post_modal.dart';
 import 'helpers/api_helper.dart';
 
 class ApiControllers extends ChangeNotifier {
-  Posts? post;
+  // Posts? post;
+  //
+  // Future<void> getData() async {
+  //   post = await APiHelper.apiHelper.getSingleResponse();
+  //   notifyListeners();
+  // }
 
-  Future<void> getData() async {
-    post = await APiHelper.apiHelper.getSingleResponse();
+  List data = [];
+
+  ApiControllers() {
+    search();
+  }
+  search({String val = "nature"}) async {
+    data = await APIHelper.apiHelper.getWallpepers(query: val) ?? [];
     notifyListeners();
+    return 0;
   }
 }

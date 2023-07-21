@@ -25,22 +25,14 @@ class _HomePageState extends State<HomePage> {
           builder: (context, provider, _) => Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              TextFormField(
-                decoration: InputDecoration(border: OutlineInputBorder()),
-                onFieldSubmitted: (val) {
-                  APiHelper.apiHelper.getId(num: int.parse(val));
-                  Provider.of<ApiControllers>(context, listen: false).getData();
-                  setState(() {});
-                },
+              TextField(
+                decoration: InputDecoration(
+                  suffixIcon: Icon(Icons.search),
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(30),
+                  ),
+                ),
               ),
-              provider.post != null
-                  ? Center(
-                      child: ListTile(
-                        title: Text(provider.post!.title),
-                        leading: Text(provider.post!.id.toString()),
-                      ),
-                    )
-                  : CircularProgressIndicator(),
             ],
           ),
         ),
