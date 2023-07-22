@@ -8,16 +8,10 @@ class ApiControllers extends ChangeNotifier {
 
   ApiControllers() {
     search();
-    // getWallpeper();
   }
-  // getWallpeper() async {
-  //   data = await APIHelper.apiHelper.getWallpepers() ?? [];
-  //   return data;
-  // }
 
   search({String val = "nature"}) async {
     data = await APIHelper.apiHelper.getWallpepers(query: val) ?? [];
     notifyListeners();
-    return data;
   }
 }
