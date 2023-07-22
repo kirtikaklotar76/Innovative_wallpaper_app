@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../../controllers/api_provider.dart';
 import '../../controllers/helpers/api_helper.dart';
+import '../../modals/my_routes.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -45,11 +46,19 @@ class _HomePageState extends State<HomePage> {
                   child: GridView.builder(
                     itemCount: provider.data.length,
                     itemBuilder: (context, index) {
-                      return ClipRRect(
-                        borderRadius: BorderRadius.circular(15),
-                        child: Image.network(
-                          provider.data[index]['largeImageURL'],
-                          fit: BoxFit.cover,
+                      return GestureDetector(
+                        onTap: () {
+                          Navigator.of(context).pushNamed(
+                            MyRoutes.WallPaperDetailedPage,
+                            arguments: provider.data[index],
+                          );
+                        },
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(15),
+                          child: Image.network(
+                            provider.data[index]['largeImageURL'],
+                            fit: BoxFit.fill,
+                          ),
                         ),
                       );
                     },

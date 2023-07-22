@@ -9,7 +9,7 @@ class APIHelper {
 
   Future<List?> getWallpepers({String query = "nature"}) async {
     String wallpeperApi =
-        "https://pixabay.com/api/?key=38380579-ad3f6cb78dd787d8ea5510b22&q=$query";
+        "https://pixabay.com/api/?key=38380579-ad3f6cb78dd787d8ea5510b22&q=$query&orientation=vertical";
 
     http.Response response = await http.get(
       Uri.parse(wallpeperApi),
