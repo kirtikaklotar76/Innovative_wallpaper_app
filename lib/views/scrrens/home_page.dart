@@ -31,6 +31,9 @@ class _HomePageState extends State<HomePage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 TextField(
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
                   onSubmitted: (val) {
                     provider.search(val: val);
                     print("data : $val");
