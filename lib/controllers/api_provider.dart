@@ -1,6 +1,4 @@
 import 'package:flutter/cupertino.dart';
-
-import '../modals/post_modal.dart';
 import 'helpers/api_helper.dart';
 
 class ApiControllers extends ChangeNotifier {

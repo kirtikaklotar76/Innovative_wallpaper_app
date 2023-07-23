@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../controllers/api_provider.dart';
-import '../../controllers/helpers/api_helper.dart';
 import '../../modals/my_routes.dart';
 
 class HomePage extends StatefulWidget {
@@ -17,8 +16,12 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Innovative wallpapers"),
+        title: const Text(
+          "Innovative wallpapers",
+          style: TextStyle(color: Colors.white),
+        ),
         centerTitle: true,
+        backgroundColor: Color(0XFF0A324B),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -33,7 +36,9 @@ class _HomePageState extends State<HomePage> {
                     print("data : $val");
                   },
                   decoration: InputDecoration(
-                    suffixIcon: const Icon(Icons.search),
+                    hintText: "search wallpapers",
+                    hintStyle: const TextStyle(color: Colors.grey),
+                    suffixIcon: const Icon(Icons.search, color: Colors.grey),
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(30),
                     ),
@@ -55,9 +60,12 @@ class _HomePageState extends State<HomePage> {
                         },
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(15),
-                          child: Image.network(
-                            provider.data[index]['largeImageURL'],
-                            fit: BoxFit.fill,
+                          child: Container(
+                            color: Colors.white,
+                            child: Image.network(
+                              provider.data[index]['largeImageURL'],
+                              fit: BoxFit.fill,
+                            ),
                           ),
                         ),
                       );
@@ -75,6 +83,7 @@ class _HomePageState extends State<HomePage> {
           },
         ),
       ),
+      backgroundColor: Color(0XFF09324B),
     );
   }
 }
